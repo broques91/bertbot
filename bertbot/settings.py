@@ -25,7 +25,7 @@ SECRET_KEY = 'chv)c-@s-ue69x&o1*a@=49@bwso3rlgoaiusbe$)*w*gwk5u_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["br-bertbot.herokuapp.com"]
 
 from transformers import pipeline
 
