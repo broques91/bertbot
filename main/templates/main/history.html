@@ -1,0 +1,29 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>History</title>
+  <link rel="stylesheet" href="{% static 'main/style.css' %}">
+</head>
+<body style="max-width: 80%; margin: 0 auto;">
+
+  <div class="history-header">
+      <h2 id="history-title">History</h2>
+      <p>History of questions and answers</p>
+  </div>
+
+  <a href="{% url 'main:index' %}">Back</a>
+
+  {% for q in question %}
+    <div class="card">
+      <h3>{{ q.question }}</h3>
+      <p><b>Terms:</b> {{ q.wiki_terms }}</p>
+      <p><b>Context:</b> {{ q.wiki_text }}</p>
+      <p><b>Answer:</b> {{ q.answer }}</p>
+      <p><b>Score:</b> {{ q.prediction_score | floatformat:2 }}</p>
+    </div>
+  {% endfor %}
+
+</body>
+</html>

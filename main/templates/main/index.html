@@ -1,0 +1,38 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BERTBot</title>
+    <link rel="stylesheet" href="{% static 'main/style.css' %}">
+</head>
+<body>
+  <h1>BERTBot</h1>
+
+    <div class="content">
+        <form action="{% url 'main:index' %}" method="post">
+            {% csrf_token %}
+            <h2>Ask BERTBot</h2>
+            <p>Question</p>
+            {{ form.question }}
+            <p>Wiki terms</p>
+            {{ form.wiki_terms }}
+            <div class="btn-block">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+
+        <div class="result">
+            <h2>Result</h2>
+            <p><b>Answer:</b> {{ answer }}</p>
+            <p><b>Prediction score:</b> {{ score | floatformat:2 }}</p>
+            <a href="{% url 'main:history' %}">History</a>
+        </div>
+
+    </div>
+
+
+
+
+</body>
+</html>
